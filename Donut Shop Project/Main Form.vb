@@ -1,9 +1,11 @@
-﻿' Name:         Donut Project
-' Purpose:      
-' Programmer:   Phillip Nguyen on 04/05/2023
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 Option Infer Off
+' Name:         Donut Project
+' Purpose:      
+' Programmer:   Phillip Nguyen on 04/05/2023
+Imports System.Security.Cryptography
+
 Public Class frmMain
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
@@ -20,12 +22,6 @@ Public Class frmMain
         Dim dblSalesTax As Double
         Dim dblSubTotal As Double
 
-        For Each thingy As RadioButton In grpDonutChoices.Controls
-            If thingy.Checked = True Then
-                dblSubTotal += Val(thingy.Text)
-            End If
-        Next
-
         lblSubtotal.Text = dblSubTotal.ToString("C2")
         lblSalesTax.Text = dblSalesTax.ToString("C2")
         lblTotal.Text = dblTotal.ToString("C2")
@@ -33,5 +29,6 @@ Public Class frmMain
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Calc()
+        MsgBox("another change")
     End Sub
 End Class
